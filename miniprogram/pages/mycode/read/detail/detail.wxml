@@ -1,0 +1,28 @@
+<!--pages/mycode/read/detail/detail.wxml-->
+<view class="container">
+  <view class="item">
+      <view class='setting' bindtap='jumpLogin'>
+      <image class='btnImg' src="{{tiezi.head}}" style='width:50rpx;height:50rpx;border-radius:20px;margin-left:16rpx;margin-top:6rpx;margin-bottom:6rpx'></image> 
+      <text decode="true" class="title2">&nbsp;{{tiezi.nickname}}</text>
+      <image class='btnImg' src='../../images/like.png' style='width:40rpx;height:35rpx;margin-left:545rpx'></image> 
+      </view>
+
+      <image class="item-img" style="margin-top:10rpx" mode="widthFix" src="{{tiezi.pic}}"></image>
+      <text decode="true" class="title">{{tiezi.title}}</text>
+      <view class='item1'>{{tiezi.content}}</view>
+
+      <button id="btn" bindtap="onComment">评论</button>
+      
+      <view class='comment'>
+      <view wx:for="{{tiezi.comment}}" wx:key="index" decode="true" class="title">
+        <view class='setting1' bindtap='jumpLogin'>
+         <image class='btnImg' src="{{item.head}}" style='width:40rpx;height:40rpx;border-radius:20px'></image> 
+         <text decode="true" class="title2">&nbsp;{{item.nickname}}&nbsp;:</text>
+         <text decode="true" class="item2">&nbsp;{{item.content}}</text>
+       </view>       
+      </view>
+      </view>
+      
+
+  </view>
+</view>
