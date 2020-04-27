@@ -34,7 +34,10 @@ exports.main = async (event, context) => {
     let data = await db.collection('user').where({
       openid: res.data[i].openid
     }).orderBy('_id','desc').limit(1).get()
-
+    let punch_data = await db.collection('punch').where({
+      openid: res.data[i].openid
+    }).orderBy('_id','desc').limit(1).get()
+    res.data[i].punch_day = punch_data.data[0].punch_day
     res.data[i].head = data.data[0].head
     res.data[i].nickname = data.data[0].nickname
   }

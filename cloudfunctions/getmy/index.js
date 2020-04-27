@@ -4,9 +4,7 @@ const cloud = require('wx-server-sdk')
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
 })
-
 const db = cloud.database()
-
 
 const MAX_LIMIT = 100
 exports.main = async (event, context) => {
@@ -35,12 +33,10 @@ exports.main = async (event, context) => {
   for (let i = 0; i < res.data.length; i++) {
     if (res.data[i].openid === wxContext.OPENID) {
       search.push(res.data[i])
-      continue
     }
   }
-
   return {
     data: search,
-    errMsg: res.errMsg,
+    errMsg: res.errMsg
   }
 }
